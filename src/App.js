@@ -1,28 +1,32 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Players from './Players';
+
 import './App.css';
 
-class App extends Component {
-  render() {
+function App() {
+    state = {
+        players: [
+            { id: 1, name: 'Babe Ruth' },
+            { id: 2, name: 'Jackie Robinson' },
+            { id: 3, name: 'Derek Jeter' },
+        ]
+    }
+    const [greeting, setGreeting] = useState('')
+
+    const greet = () => {
+        setGreeting('hello web 18')
+    }
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <div className='App'>
+            <h3>Hello World!</h3>
+            <div>
+                <button onClick={greet}>Greet</button>
+            </div>
+            <h4>{greeting}</h4>
+            <Players players={this.state.players]} />
+        </div>
     );
-  }
 }
 
 export default App;
